@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mapel', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('kelas');
-            $table->time('waktu', $precision = 0);
-            $table->timestamps();
+        Schema::table('guru', function (Blueprint $table) {
+            $table->foreign('mapel_id')->references('id')->on('mapel');
         });
     }
 

@@ -5,6 +5,9 @@ use App\Http\Controllers\Akun\Service\AkunServiceController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\Service\AuthServiceController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Guru\GuruController;
+use App\Http\Controllers\Mapel\MapelController;
+use App\Http\Controllers\Mapel\Service\MapelServiceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +32,32 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::post('/logout', [AuthServiceController::class, 'logout'])->name('auth.logout');
+
+    //akun
+    //route akun
     Route::get('/akun', [AkunController::class, 'index'])->name('akun.index');
     Route::get('/akun/create', [AkunController::class, 'create'])->name('akun.create');
-    Route::post('/akun', [AkunServiceController::class, 'store'])->name('akun.store');
     Route::get('/akun/{id}', [AkunController::class, 'show'])->name('akun.show');
-    Route::put('/akun/{id}', [AkunServiceController::class, 'update'])->name('akun.update');//update
-    Route::delete('/akun/{id}', [AkunServiceController::class, 'destroy'])->name('akun.destroy'); //destroy
+
+    //service akun
+    Route::post('/akun', [AkunServiceController::class, 'store'])->name('akun.store');
+    Route::put('/akun/{id}', [AkunServiceController::class, 'update'])->name('akun.update');
+    Route::delete('/akun/{id}', [AkunServiceController::class, 'destroy'])->name('akun.destroy');
+
+    //guru
+    //route akun
+    Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');
+    Route::get('/guru/create', [GuruController::class, 'create'])->name('guru.create');
+    //service akun
+
+    //mapel
+    //route mapel
+    Route::get('/mapel', [MapelController::class, 'index'])->name('mapel.index');
+    Route::get('/mapel/create', [MapelController::class, 'create'])->name('mapel.create');
+    Route::get('/mapel/{id}', [MapelController::class, 'show'])->name('mapel.show');
+
+    //service mapel
+    Route::put('/mapel/{id}', [MapelServiceController::class, 'update'])->name('mapel.update');
+    Route::post('/mapel', [MapelServiceController::class, 'store'])->name('mapel.store');
+    Route::delete('/mapel/{id}', [MapelServiceController::class, 'destroy'])->name('mapel.destroy');
 });

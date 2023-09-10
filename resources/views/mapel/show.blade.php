@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="waktu" class="form-label">Waktu</label>
-                        <input id="waktu" class="form-control @error('waktu') is-invalid @enderror" type="time" name="waktu" value="{{ $mapel->waktu }}" required/>
+                        <input id="waktu" class="form-control @error('waktu') is-invalid @enderror" type="time" name="waktu" value="{{ Carbon\Carbon::parse($mapel->waktu)->format('H:i') }}" required/>
 
                         @error('waktu')
                         <span class="invalid-feedback" role="alert">

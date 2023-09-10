@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('kelas');
-            $table->time('waktu', $precision = 0);
+            $table->timestamp('schedule_at', $precision = 0);
             $table->timestamps();
         });
     }

@@ -24,7 +24,7 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $mapel->nama }}</td>
                         <td>{{ $mapel->kelas }}</td>
-                        <td>{{ $mapel->waktu }}</td>
+                        <td>{{ Carbon\Carbon::parse($mapel->waktu)->format('H:i') }}</td>
                         <td>
                             <a onclick="event.preventDefault(); document.getElementById('delete-mapel').submit();" href="#" class="btn btn-danger">Hapus</a>
                             <a href="{{ route('mapel.show', ['id' => $mapel->id]) }}" class="btn btn-warning">Edit</a>

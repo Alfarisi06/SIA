@@ -6,6 +6,8 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\Service\AuthServiceController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Guru\GuruController;
+use App\Http\Controllers\Kelas\KelasController;
+use App\Http\Controllers\Kelas\Service\KelasServiceController;
 use App\Http\Controllers\Mapel\MapelController;
 use App\Http\Controllers\Mapel\Service\MapelServiceController;
 use Illuminate\Support\Facades\Route;
@@ -60,4 +62,15 @@ Route::middleware('auth')->group(function () {
     Route::put('/mapel/{id}', [MapelServiceController::class, 'update'])->name('mapel.update');
     Route::post('/mapel', [MapelServiceController::class, 'store'])->name('mapel.store');
     Route::delete('/mapel/{id}', [MapelServiceController::class, 'destroy'])->name('mapel.destroy');
+
+    //kelas
+    //route kelas
+    Route::get('/kelas', [KelasController::class, 'index'])->name('kelas.index');
+    Route::get('/kelas/create', [KelasController::class, 'create'])->name('kelas.create');
+    Route::get('/kelas/{id}', [KelasController::class, 'show'])->name('kelas.show');
+
+    //service kelas
+    Route::post('/kelas', [KelasServiceController::class, 'store'])->name('kelas.store');
+    Route::delete('/kelas/{id}', [KelasServiceController::class, 'destroy'])->name('kelas.destroy');
+    Route::put('/kelas/{id}', [KelasServiceController::class, 'update'])->name('kelas.update');
 });

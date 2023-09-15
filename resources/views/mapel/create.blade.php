@@ -18,25 +18,36 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="kelas" class="form-label">Kelas</label>
-                        <select class="form-select @error('kelas') is-invalid @enderror" name="kelas" aria-label="Default select example">
+                        <label for="kelas_id" class="form-label">Kelas</label>
+                        <select class="form-select @error('kelas_id') is-invalid @enderror" name="kelas_id">
                             <option selected disabled>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            @foreach ($kelass as $kelas)
+                            <option value="{{ $kelas->id }}">{{ $kelas->nama }}</option>
+                            @endforeach
+                            
                         </select>
 
-                        @error('kelas')
+                        @error('kelas_id')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="waktu" class="form-label">Waktu</label>
-                        <input id="waktu" class="form-control @error('waktu') is-invalid @enderror" type="time" name="waktu" required/>
+                        <label for="waktu_mulai" class="form-label">Waktu Mulai</label>
+                        <input id="waktu_mulai" class="form-control @error('waktu_mulai') is-invalid @enderror" type="time" name="waktu_mulai" required/>
 
-                        @error('waktu')
+                        @error('waktu_mulai')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="waktu_selesai" class="form-label">Waktu Selesai</label>
+                        <input id="waktu_selesai" class="form-control @error('waktu_selesai') is-invalid @enderror" type="time" name="waktu_selesai" required/>
+
+                        @error('waktu_selesai')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

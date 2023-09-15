@@ -11,5 +11,5 @@ class Guru extends Model
 
     protected $table = 'guru';
     protected $primaryKey = 'id';
-    protected $guarded = [];
+    protected $guarded = ['id'];
 }

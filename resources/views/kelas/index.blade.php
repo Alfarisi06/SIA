@@ -21,8 +21,8 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $kelas->nama }}</td>
                         <td>
-                            <a onclick="event.preventDefault(); document.getElementById('delete-kelas').submit();" class="btn btn-danger">Hapus</a>
-                            <a href="{{ route('kelas.show', ['id' => $kelas->id]) }}" class="btn btn-warning">Edit</a>
+                            <a onclick="event.preventDefault(); document.getElementById('delete-kelas').submit();" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: white"></i></a>
+                            <a href="{{ route('kelas.show', ['id' => $kelas->id]) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: white"></i></a>
                         </td>
                         <form id="delete-kelas" action="{{ route('kelas.destroy', ['id' => $kelas->id]) }}" method="POST" class="d-none">
                             @method('DELETE')

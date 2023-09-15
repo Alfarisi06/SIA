@@ -11,5 +11,5 @@ class Mapel extends Model
 
     protected $table = 'mapel';
     protected $primaryKey = 'id';
-    protected $guarded = [];
+    protected $guarded = ['id'];
 }

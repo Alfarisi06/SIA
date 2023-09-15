@@ -10,6 +10,8 @@ use App\Http\Controllers\Kelas\KelasController;
 use App\Http\Controllers\Kelas\Service\KelasServiceController;
 use App\Http\Controllers\Mapel\MapelController;
 use App\Http\Controllers\Mapel\Service\MapelServiceController;
+use App\Http\Controllers\Siswa\Service\SiswaServiceController;
+use App\Http\Controllers\Siswa\SiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,4 +75,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/kelas', [KelasServiceController::class, 'store'])->name('kelas.store');
     Route::delete('/kelas/{id}', [KelasServiceController::class, 'destroy'])->name('kelas.destroy');
     Route::put('/kelas/{id}', [KelasServiceController::class, 'update'])->name('kelas.update');
+
+    //siswa
+    //route siswa
+    Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+    Route::get('/siswa/create', [SiswaController::class, 'create'])->name('siswa.create');
+    Route::get('/siswa/{id}', [SiswaController::class, 'show'])->name('siswa.show');
+
+    //service siswa
+    Route::post('/siswa', [SiswaServiceController::class, 'store'])->name('siswa.store');
+    Route::delete('/siswa/{id}', [SiswaServiceController::class, 'destroy'])->name('siswa.destroy');
+    Route::put('/siswa/{id}', [SiswaServiceController::class, 'update'])->name('siswa.update');
 });

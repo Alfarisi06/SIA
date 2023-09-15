@@ -4,18 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Kelas extends Model
+class Siswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'kelas';
+    protected $table = 'siswa';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
 
-    public function siswa(): HasMany
+    public function Kelas(): belongsTo
     {
-        return $this->hasMany(Siswa::class);
+        return $this->belongsTo(Kelas::class);
     }
 }

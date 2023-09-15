@@ -44,10 +44,10 @@
                         @enderror
                     </div>
                     <div class="mb-3">
-                        <label for="waktu" class="form-label">Waktu</label>
-                        <input id="waktu" class="form-control @error('waktu') is-invalid @enderror" type="time" name="waktu" value="{{ Carbon\Carbon::parse($mapel->waktu)->format('H:i') }}" required/>
+                        <label for="waktu_mulai" class="form-label">Waktu</label>
+                        <input id="waktu_mulai" class="form-control @error('waktu_mulai') is-invalid @enderror" type="time" name="waktu_mulai" value="{{ Carbon\Carbon::parse($mapel->waktu)->format('H:i') }}" required/>
 
-                        @error('waktu')
+                        @error('waktu_mulai')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

@@ -26,8 +26,8 @@
                         <td>{{ $mapel->kelas }}</td>
                         <td>{{ Carbon\Carbon::parse($mapel->waktu)->format('H:i') }}</td>
                         <td>
-                            <a onclick="event.preventDefault(); document.getElementById('delete-mapel').submit();" href="#" class="btn btn-danger">Hapus</a>
-                            <a href="{{ route('mapel.show', ['id' => $mapel->id]) }}" class="btn btn-warning">Edit</a>
+                            <a onclick="event.preventDefault(); document.getElementById('delete-mapel').submit();" href="#" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: white"></i></a>
+                            <a href="{{ route('mapel.show', ['id' => $mapel->id]) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: white"></i></a>
                         </td>
                         <form id="delete-mapel" action="{{ route('mapel.destroy', ['id' => $mapel->id]) }}" method="POST" class="d-none">
                             @method('DELETE')

@@ -32,8 +32,8 @@
                         <td>Siswa</td>
                         @endif
                         <td>
-                            <a onclick="event.preventDefault(); document.getElementById('delete-akun').submit();" href="{{ route('akun.destroy', ['id' => $akun->id]) }}" class="btn btn-danger">Hapus</a>
-                            <a href="{{ route('akun.show', ['id' => $akun->id]) }}" class="btn btn-warning">Edit</a>
+                            <a onclick="event.preventDefault(); document.getElementById('delete-akun').submit();" href="{{ route('akun.destroy', ['id' => $akun->id]) }}" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: white"></i></a>
+                            <a href="{{ route('akun.show', ['id' => $akun->id]) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: white"></i></a>
                         </td>
                         <form id="delete-akun" action="{{ route('akun.destroy', ['id' => $akun->id]) }}" method="POST" class="d-none">
                             @method('DELETE')

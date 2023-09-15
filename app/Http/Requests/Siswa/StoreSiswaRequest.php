@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Mapel;
+namespace App\Http\Requests\Siswa;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreMapelRequest extends FormRequest
+class StoreSiswaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -20,8 +20,8 @@ class StoreMapelRequest extends FormRequest
         return [
             'required' => 'wajib diisi',
             'string' => 'format salah',
-            'date_format' => 'format salah'
-        ];   
+            'numeric' => 'format salah'
+        ];
     }
 
     /**
@@ -33,8 +33,8 @@ class StoreMapelRequest extends FormRequest
     {
         return [
             'nama' => 'required|string',
-            'waktu_mulai' => 'required|date_format:H:i',
-            'waktu_selesai' => 'required|date_format:H:i'
+            'alamat' => 'required|string',
+            'kelas_id' => 'required|numeric'
         ];
     }
 }

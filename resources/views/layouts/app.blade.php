@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>SIA-APP</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -42,6 +42,9 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('kelas.index') }}" class="nav-link">Kelas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('siswa.index') }}" class="nav-link">Siswa</a>
                         </li>
                     </ul>
                     @endauth

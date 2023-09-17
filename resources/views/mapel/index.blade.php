@@ -14,7 +14,8 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama Mata Pelajaran</th>
                         <th scope="col">Kelas</th>
-                        <th scope="col">Waktu</th>
+                        <th scope="col">Waktu Mulai</th>
+                        <th scope="col">Waktu Selesai</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -23,8 +24,9 @@
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $mapel->nama }}</td>
-                        <td>{{ $mapel->kelas }}</td>
-                        <td>{{ Carbon\Carbon::parse($mapel->waktu)->format('H:i') }}</td>
+                        <td>{{ $mapel->kelas->nama }}</td>
+                        <td>{{ Carbon\Carbon::parse($mapel->schedule_start_at)->format('H:i') }}</td>
+                        <td>{{ Carbon\Carbon::parse($mapel->schedule_end_at)->format('H:i') }}</td>
                         <td>
                             <a onclick="event.preventDefault(); document.getElementById('delete-mapel').submit();" href="#" class="btn btn-danger"><i class="fa-solid fa-trash" style="color: white"></i></a>
                             <a href="{{ route('mapel.show', ['id' => $mapel->id]) }}" class="btn btn-warning"><i class="fa-solid fa-pen-to-square" style="color: white"></i></a>

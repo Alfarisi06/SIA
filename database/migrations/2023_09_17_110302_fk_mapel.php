@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('siswa', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->text('alamat');
-            $table->unsignedBigInteger('kelas_id');
-            $table->unsignedBigInteger('mapel_id')->nullable();
-            $table->unsignedBigInteger('guru_id')->nullable();
-            $table->timestamps();
+        Schema::table('siswa', function (Blueprint $table) {
+            $table->foreign('mapel_id')->references('id')->on('mapel');
+            $table->foreign('kelas_id')->references('id')->on('kelas');
+            $table->foreign('guru_id')->references('id')->on('guru');
         });
     }
 

@@ -16,9 +16,9 @@ class SiswaController extends Controller
         ]);
     }
 
-    public function create(){
+    public function create(KelasServiceController $kelas){
         return view('siswa/create', [
-            'kelass' => Kelas::all()
+            'kelass' => $kelas->getKelas(),
         ]);
     }
 

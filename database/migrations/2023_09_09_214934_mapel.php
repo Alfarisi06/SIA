@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('mapel', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->timestamp('schedule_start_at', $precision = 0);
-            $table->timestamp('schedule_end_at', $precision = 0);
+            $table->unsignedBigInteger('kelas_id');
+            $table->time('schedule_start_at', $precision = 0);
+            $table->time('schedule_end_at', $precision = 0);
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nama</th>
+                        <th scope="col">Nama Siswa</th>
                         <th scope="col">Alamat</th>
                         <th scope="col">Kelas</th>
                         <th scope="col">Action</th>

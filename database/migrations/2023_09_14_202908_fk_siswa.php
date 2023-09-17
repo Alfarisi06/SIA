@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('siswa', function (Blueprint $table) {
-            $table->foreign('mapel_id')->references('id')->on('mapel');
+        Schema::table('mapel', function (Blueprint $table) {
             $table->foreign('kelas_id')->references('id')->on('kelas');
         });
     }
@@ -22,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('siswa');
+        Schema::dropIfExists('mapel');
     }
 };

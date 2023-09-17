@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mapel;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Kelas\Service\KelasServiceController;
 use App\Http\Controllers\Mapel\Service\MapelServiceController;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
@@ -21,9 +22,10 @@ class MapelController extends Controller
         ]);
     }
 
-    public function show(MapelServiceController $mapel, $id){
+    public function show(MapelServiceController $mapel, KelasServiceController $kelas, $id){
         return view('mapel/show', [
-            'mapel' => $mapel->getMapelById($id)
+            'mapel' => $mapel->getMapelById($id),
+            'kelass' => $kelas->getKelas()
         ]);
     }
 }

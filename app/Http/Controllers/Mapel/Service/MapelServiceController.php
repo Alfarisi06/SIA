@@ -14,8 +14,10 @@ class MapelServiceController extends Controller
         if($request->validated()){
             Mapel::create([
                 'nama' => $request->nama,
-                'kelas' => $request->kelas,
-                'waktu' => $request->waktu
+                'kelas_id' => $request->kelas_id,
+                'waktu' => $request->waktu,
+                'schedule_start_at' => $request->waktu_mulai,
+                'schedule_end_at' => $request->waktu_selesai
             ]);
 
             return redirect()->route('mapel.index');
@@ -37,13 +39,13 @@ class MapelServiceController extends Controller
     }
 
     public function update(StoreMapelRequest $request, $id){
-        //dd($request->all());
         if($request->validated()){
             $mapel = Mapel::find($id);
         
             $mapel->nama = $request->nama;
-            $mapel->kelas = $request->kelas;
-            $mapel->waktu = $request->waktu;
+            $mapel->kelas_id = $request->kelas_id;
+            $mapel->schedule_start_at = $request->waktu_mulai;
+            $mapel->schedule_end_at = $request->waktu_selesai;
             
             $mapel->save();
         }

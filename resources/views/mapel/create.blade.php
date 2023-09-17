@@ -24,7 +24,6 @@
                             @foreach ($kelass as $kelas)
                             <option value="{{ $kelas->id }}">{{ $kelas->nama }}</option>
                             @endforeach
-                            
                         </select>
 
                         @error('kelas_id')

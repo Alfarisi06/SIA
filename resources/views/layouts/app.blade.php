@@ -15,11 +15,6 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-    <script type="module">
-        $('#app').each(function(){
-            alert('halo')
-        })
-    </script>
 </head>
 <body>
     <div id="app">

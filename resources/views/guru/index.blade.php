@@ -14,7 +14,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama Guru</th>
                         <th scope="col">kabupaten / kota</th>
-                        <th scope="col">Mata Pelajaran</th>
+                        <th scope="col">Mata Pelajaran Yang Diampu</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>

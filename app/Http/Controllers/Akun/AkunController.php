@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Akun;
 
 use App\Http\Controllers\Akun\Service\AkunServiceController;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Guru\Service\GuruServiceController;
 use App\Http\Controllers\Siswa\Service\SiswaServiceController;
 use Illuminate\Http\Request;
 
@@ -15,9 +16,10 @@ class AkunController extends Controller
         ]);
     }
 
-    public function create(SiswaServiceController $siswa){
+    public function create(SiswaServiceController $siswa, GuruServiceController $guru){
         return view('akun/create', [
-            'siswas' => $siswa->getSiswa()
+            'siswas' => $siswa->getSiswa(),
+            'gurus' => $guru->getGuru()
         ]);
     }
 

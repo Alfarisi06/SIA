@@ -42,12 +42,27 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="mb-3">
-                        <label for="siswa_id" class="form-label">Hubungkan Data Siswa</label>
-                        <select class="form-select @error('siswa_id') is-invalid @enderror" name="siswa_id" id="siswa_id">
+                    <div id="is_siswa" class="mb-3 visually-hidden">
+                        <label for="siswa_id" class="form-label">Hubungkan Data Siswa</label><br>
+                        <select style="width: 100%;" class="@error('siswa_id') is-invalid @enderror" name="siswa_id" id="siswa_id">
                             <option selected>Open this select menu</option>
                             @foreach ($siswas as $siswa)
-                            <option value="{{ $siswa->id }}">{{ $siswa->nama }} - {{ $siswa->kelas->nama }}</option>
+                            <option value="{{ $siswa->id }}">{{ $siswa->nama }}</option>
+                            @endforeach
+                        </select>
+
+                        @error('siswa_id')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div id="is_guru" class="mb-3 visually-hidden">
+                        <label for="guru_id" class="form-label">Hubungkan Data Guru</label>
+                        <select style="width: 100%;" class="@error('guru_id') is-invalid @enderror" name="guru_id" id="guru_id">
+                            <option selected>Open this select menu</option>
+                            @foreach ($gurus as $guru)
+                            <option value="{{ $guru->id }}">{{ $guru->nama }}</option>
                             @endforeach
                         </select>
 
@@ -86,10 +101,10 @@
 <script type="module">
     $(document).ready(function() {
         $('#siswa_id').select2();
+        $('#guru_id').select2();
 
         const setRole = () => {
             var setValRole = $('#role').val()
-            // console.log(setValRole)
             if(setValRole == 1){
                 setValRole = '@admin'
             }
@@ -103,37 +118,33 @@
             return setValRole
         }
 
-        $('#role').change(function(){
-            var role = setRole()
+        const setClassUnHidden = () => {
+            var role = $('#role').val()
+            if(role == 2){
+                $("#is_siswa").addClass("visually-hidden");
+                $('#is_guru').removeClass("visually-hidden");
+            }
+            else if(role == 3){
+                $('#is_siswa').removeClass("visually-hidden");
+                $('#is_guru').addClass("visually-hidden");
+            }
+            else{
+                $('#is_siswa').addClass("visually-hidden");
+                $('#is_guru').addClass("visually-hidden");
+            }
+        }
+
+        const setUsernamePassword = (role) => {
             $('#username').val(Math.floor(1000 + Math.random() * 9000) + role)
             $('#password').val(Math.floor(1000 + Math.random() * 9000))
+        }
+
+        $('#role').change(function(){
+            var role = setRole()
+            setClassUnHidden()
+            setUsernamePassword(role)
+            
         })
     });
-
-    // const setUsernamePassword = () => {
-    //     const username = document.getElementById('username')
-    //     const password = document.getElementById('password')
-
-    //     const set = setRole()
-
-    //     username.value = Math.floor(1000 + Math.random() * 9000) + set
-    //     password.value = Math.floor(1000 + Math.random() * 9000)
-    // }
-
-    // const setRole = () => {
-    //     const role = document.getElementById('role')
-    //     let setValRole = ''
-    //     if(role.value == 1){
-    //         setValRole = '@admin'
-    //     }
-    //     else if(role.value == 2){
-    //         setValRole = '@guru'
-    //     }
-    //     else if(role.value == 3){
-    //         setValRole = '@siswa'
-    //     }
-
-    //     return setValRole
-    // }
 </script>
 @endsection

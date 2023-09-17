@@ -20,7 +20,17 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="asal" class="form-label"></label>
+                        <label for="asal" class="form-label">Alamat</label>
+                        <textarea class="form-control" id="asal" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mapel_id" class="form-label">Mata Pelajaran Yang diampu</label>
+                        <select class="form-select" name="mapel_id" id="mapel_id" aria-label="Default select example">
+                            <option selected disabled>-- Pilih --</option>
+                            @foreach ($mapels as $mapel)
+                            <option value="{{ $mapel->id }}">{{ $mapel->nama }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
